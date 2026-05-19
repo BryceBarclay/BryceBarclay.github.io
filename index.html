@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dr. Bryce M. Barclay - Academic Homepage</title>
+<meta name="description" content="Personal academic homepage of Dr. Bryce M. Barclay, researcher in mathematical physics at Arizona State University." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --surface: #ffffff;
+    --text: #1a1a1a;
+    --muted: #5e5e5e;
+    --border: #e6e3dc;
+    --accent: #b4561e;       /* warm terracotta accent */
+    --accent-soft: #f4ece3;
+    --max: 760px;
+    --radius: 6px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-size: 16.5px;
+    line-height: 1.65;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color .15s ease;
+  }
+  a:hover { border-bottom-color: var(--accent); }
+
+  /* Layout */
+  .container {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Header / nav */
+  header.site-nav {
+    padding: 28px 0 0;
+    font-size: 14.5px;
+  }
+  .site-nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .brand {
+    font-weight: 600;
+    color: var(--text);
+    border: none;
+  }
+  .nav-links {
+    display: flex;
+    gap: 22px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .nav-links a {
+    color: var(--muted);
+    border: none;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  /* Hero / about */
+  .hero {
+    padding: 60px 0 24px;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+  .avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    font-family: 'Newsreader', serif;
+    font-size: 44px;
+    font-weight: 600;
+    overflow: hidden;
+  }
+  .avatar img { width: 100%; height: 100%; object-fit: cover; }
+  h1.name {
+    font-family: 'Newsreader', Georgia, serif;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 1.15;
+    margin: 0 0 6px;
+    letter-spacing: -0.01em;
+  }
+  .title {
+    color: var(--muted);
+    font-size: 15.5px;
+    margin: 0 0 18px;
+  }
+  .title strong { color: var(--text); font-weight: 500; }
+  .bio p { margin: 0 0 14px; }
+
+  .contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-top: 18px;
+    font-size: 14.5px;
+  }
+  .contact-row a { color: var(--muted); border: none; }
+  .contact-row a:hover { color: var(--accent); }
+  .contact-row svg {
+    width: 15px;
+    height: 15px;
+    vertical-align: -2px;
+    margin-right: 5px;
+  }
+
+  /* Sections */
+  section {
+    padding: 40px 0 8px;
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+  }
+  h2 {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0 0 22px;
+    letter-spacing: -0.005em;
+  }
+
+  /* Research / projects */
+  .projects {
+    display: grid;
+    gap: 22px;
+  }
+  .project {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 22px;
+    align-items: start;
+  }
+  .project-tag {
+    font-size: 12.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    padding-top: 4px;
+  }
+  .project h3 {
+    margin: 0 0 4px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .project p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 15px;
+  }
+
+  /* Publications */
+  .pubs {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .pub {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .pub:last-child { border-bottom: none; }
+  .pub-title {
+    font-weight: 600;
+    color: var(--text);
+    margin: 0 0 4px;
+  }
+  .pub-meta {
+    color: var(--muted);
+    font-size: 14.5px;
+    margin: 0 0 6px;
+  }
+  .pub-meta em { color: var(--text); font-style: italic; font-weight: 500; }
+  .pub-links {
+    display: flex;
+    gap: 14px;
+    font-size: 13.5px;
+  }
+  .pub-links a {
+    color: var(--accent);
+    border: none;
+    text-transform: lowercase;
+  }
+  .pub-year {
+    display: inline-block;
+    font-variant-numeric: tabular-nums;
+    color: var(--muted);
+    font-size: 13px;
+    margin-right: 8px;
+  }
+
+  /* Teaching */
+  .teaching-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px;
+  }
+  .teaching-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    font-size: 15px;
+  }
+  .teaching-list li:last-child { border-bottom: none; }
+  .teaching-list .term {
+    color: var(--muted);
+    font-size: 13.5px;
+    white-space: nowrap;
+  }
+
+  .cv-button {
+    display: inline-block;
+    padding: 9px 16px;
+    background: var(--text);
+    color: var(--bg);
+    border-radius: var(--radius);
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    margin-top: 6px;
+  }
+  .cv-button:hover {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+  }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--border);
+    margin-top: 64px;
+    padding: 28px 0 40px;
+    color: var(--muted);
+    font-size: 13.5px;
+    text-align: center;
+  }
+  footer a { color: var(--muted); border: none; }
+  footer a:hover { color: var(--accent); }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .hero { padding-top: 36px; }
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .avatar { width: 88px; height: 88px; font-size: 34px; }
+    h1.name { font-size: 30px; }
+    .project {
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+    .nav-links { gap: 16px; }
+    .teaching-list li { flex-direction: column; gap: 2px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="container">
+    <a href="#" class="brand">Bryce M. Barclay</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+    </ul>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- About / Hero -->
+  <section class="hero" id="about" style="border-top:none; margin-top:0;">
+    <div class="hero-grid">
+      <div class="avatar">
+        <!-- Replace with: <img src="photo.jpg" alt="Bryce M. Barclay" /> -->
+        <!-- YN -->
+        <img src="May2023GraduationProfile_Crop.pdf" alt="Bryce M. Barclay" />
+      </div>
+      <div>
+        <h1 class="name">Dr. Bryce M. Barclay</h1>
+        <p class="title"><strong>Research Scientist</strong> · Department of Mathematics · Arizona State University</p>
+        <div class="bio">
+          <p>
+            Dr. Barclay has authored many publications and given numerous invited presentations on wave propagation in turbulent media, electromagnetic sensing in non-inertial reference frames, and machine learning. He has several years of high performance computing experience and his research interests include computational PDEs, optics, and quantum science.
+          </p>
+          <p>
+            Dr. Barclay completed his PhD in applied mathematics at Arizona State University in 2023 under the co-advisors Dr. Alex Mahalov and Dr. Eric Kostelich. 
+          </p>
+        </div>
+        <div class="contact-row">
+          <a href="mailto:Bryce.Barclay@asu.edu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 4l8 8 8-8"/></svg>
+            Bryce.Barclay@asu.edu
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research -->
+  <section id="research">
+    <h2>Research</h2>
+    <div class="projects">
+
+      <article class="project">
+        <div class="project-tag">Theme 01</div>
+        <div>
+          <h3>Quantum mechanics and electromagnetism in noninertial frames</h3>
+          <p>
+            Analyzing the spectra of fields observed from noninertial reference frames. 
+          </p>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-tag">Theme 02</div>
+        <div>
+          <h3>Stochastic modeling of electromagnetic phenomena</h3>
+          <p>
+            Utilizing methods from stochastic calculus to model electromagnetic wave propagation through turbulence. 
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Publications -->
+  <section id="publications">
+    <h2>Selected Publications</h2>
+    <ul class="pubs">
+
+      <li class="pub">
+        <p class="pub-title">The dynamic Doppler spectrum induced by nonlinear sensor motion: Relativistic kinematics and 4D Frenet-Serret spacetime geometry</p>
+        <p class="pub-meta">
+          <span class="pub-year">2026</span>
+          <strong>Bryce M. Barclay</strong>, Alex Mahalov.
+          <em>arXiv:2603.24870 [math-ph]</em>.
+        </p>
+        <div class="pub-links">
+          <a href="https://doi.org/10.48550/arXiv.2603.24870">arxiv</a>
+        </div>
+      </li>
+
+      <li class="pub">
+        <p class="pub-title">Spectral distortions of signals induced by nonlinear sensor motion: Acceleration, jolt, and relativistic effects</p>
+        <p class="pub-meta">
+          <span class="pub-year">2026</span>
+          <strong>Bryce M. Barclay</strong>, Alex Mahalov.
+          <em>IEEE 59th Annual Asilomar Conference on Signals, Systems and Computers</em>.
+        </p>
+        <div class="pub-links">
+          <a href="https://doi.org/10.1109/IEEECONF67917.2025.11443942">doi</a>
+        </div>
+      </li>
+
+      <li class="pub">
+        <p class="pub-title">Doppler effects of nonlinear sensor motion in 3D space: Curvature, torsion, jolts, and directional wave propagation.</p>
+        <p class="pub-meta">
+          <span class="pub-year">2025</span>
+          <strong>Bryce M. Barclay</strong>, Eric J. Kostelich, Alex Mahalov.
+          <em>IEEE Transactions on Antennas and Propagation</em>.
+        </p>
+        <div class="pub-links">
+          <a href="https://doi.org/10.1109/TAP.2025.3533904">doi</a>
+        </div>
+      </li>
+
+    </ul>
+    <p style="margin-top: 18px; font-size: 14.5px;">
+      See curriculum vitae for the complete list.
+    </p>
+  </section>
+
+  <!-- Teaching & CV -->
+  <section id="teaching">
+    <h2>Teaching</h2>
+    <ul class="teaching-list">
+      <li>
+        <span>MAT 266 — Calculus II</span>
+        <span class="term">Fall 2022</span>
+      </li>
+      <li>
+        <span>MAT 265 — Calculus I</span>
+        <span class="term">Spring 2022</span>
+      </li>
+    </ul>
+
+    <h2 style="margin-top: 36px;">CV</h2>
+    <p style="color: var(--muted); margin: 0 0 12px;">
+      A full curriculum vitae is available as a PDF.
+    </p>
+    <a class="cv-button" href="Barclay_CV.pdf" download>Download CV (PDF)</a>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    · Last updated May 2026 · 
+  </div>
+</footer>
+
+</body>
+</html>
